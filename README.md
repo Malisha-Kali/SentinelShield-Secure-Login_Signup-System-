@@ -15,7 +15,7 @@ Verifying Passwords: When a user attempts to log in, their entered password is h
 Bcrypt is a widely used and trusted technology for password hashing due to its security features and resistance to brute-force and rainbow table attacks. It's considered one of the best practices for securely storing passwords in databases.
 
 
-# Version 1.1.0
+## Version 1.1.0
 
 including password policy when Regisration
 

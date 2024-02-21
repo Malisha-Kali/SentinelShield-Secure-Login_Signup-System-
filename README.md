@@ -13,3 +13,8 @@ Salt: Bcrypt automatically generates and manages a random salt for each password
 Verifying Passwords: When a user attempts to log in, their entered password is hashed using bcrypt and compared to the hashed password stored in the database. This comparison is done using the bcrypt.checkpw() function, which takes the entered password and the stored hashed password, returning True if they match and False otherwise.
 
 Bcrypt is a widely used and trusted technology for password hashing due to its security features and resistance to brute-force and rainbow table attacks. It's considered one of the best practices for securely storing passwords in databases.
+
+
+# Version 1.1.0
+
+including password policy when Regisration

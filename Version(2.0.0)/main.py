@@ -91,18 +91,19 @@ def register_user():
             encode_password = passwordEntry.get().encode('UTF-8')
             hashed_password = bcrypt.hashpw(encode_password, bcrypt.gensalt())
             cursor.execute('INSERT INTO users (username, password) VALUES (?,?)',[usernameEntry.get(), hashed_password])
-            
-            # Ask the user if they want to enable MFA
-            enable_mfa = messagebox.askyesno('Enable MFA', 'Do you want to enable Multi-Factor Authentication (MFA)?')
-            if enable_mfa:
-                mfa_code = generate_mfa_code()
-                cursor.execute('UPDATE users SET mfa_enabled=1, mfa_code=? WHERE username=?', [mfa_code, usernameEntry.get()])
-                messagebox.showinfo('Success', 'Registration Successful. MFA Enabled. MFA Code: ' + mfa_code)
-            else:
-                messagebox.showinfo('Success', 'Registration Successful')
-                
             conn.commit()
-            move_right()
+            messagebox.showinfo('Success', 'Registration Successful')
+            enable_mfa()  # Automatically enable MFA after registration
+
+def enable_mfa():
+    global trail
+    cursor.execute('UPDATE users SET mfa_enabled=1 WHERE username=?', [usernameEntry.get()])
+    mfa_code = generate_mfa_code()
+    cursor.execute('UPDATE users SET mfa_code=? WHERE username=?', [mfa_code, usernameEntry.get()])
+    conn.commit()
+    messagebox.showinfo('Success', 'MFA Enabled Successfully. MFA Code: ' + mfa_code)
+    trail = 3
+    trailLabel.configure(text= '')
 
 def move_frame(direction):
     global x
@@ -130,7 +131,7 @@ def move_right():
 
 # Create a window
 window = CTk()
-window.title("Loging and Signup Page")
+window.title("Login and Signup Page")
 window.wm_geometry('+500+100')
 mainframe = CTkFrame(window,fg_color='blue4',width=600,height=400)
 mainframe.grid(row=0, column=0, padx=30, pady=30)
@@ -157,4 +158,15 @@ usernameEntry = CTkEntry(topframe, font=('arial', 20, 'bold'), width=200, height
 usernameEntry.grid(row=2, column=0, padx=(20), pady=(30,20))
 
 passwordEntry = CTkEntry(topframe, font=('arial', 20, 'bold'), 
-                        width=200
+                        width=200, height=30, placeholder_text='password', show='*')
+passwordEntry.grid(row=3, column=0, padx=(20), pady=(0,20))
+
+innerButton = CTkButton(topframe, text='Sign Up', fg_color='blue2', 
+                        font=('arial', 20, 'bold'), hover_color='blue4', 
+                        cursor='hand2', command=register_user)
+innerButton.grid(row=4, column=0, pady=20)
+
+trailLabel = CTkLabel(topframe, text='', font=('arial', 20, 'bold'), text_color='blue4')
+trailLabel.grid(row=5, column=0, pady=(0, 20))
+
+window.mainloop()

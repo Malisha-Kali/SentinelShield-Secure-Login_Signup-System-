@@ -2,7 +2,7 @@
  This is a Secure Login and Signup sysem Iniatially. In future this will be upgrade to ful System with CRUD Operation
 
 
-# Used Technoly for The Registration process Securly Store the passwords of users
+## Used Technoly for The Registration process Securly Store the passwords of users
 
 The technology used for password protection in the provided code is bcrypt. Bcrypt is a password hashing function designed to securely hash passwords. It incorporates a salt to protect against rainbow table attacks and uses the Blowfish cipher. Here's how it works in the code:
 
@@ -15,7 +15,7 @@ Verifying Passwords: When a user attempts to log in, their entered password is h
 Bcrypt is a widely used and trusted technology for password hashing due to its security features and resistance to brute-force and rainbow table attacks. It's considered one of the best practices for securely storing passwords in databases.
 
 
-## Version 1.1.0
+# Version 1.1.0
 
 including password policy when Regisration
 

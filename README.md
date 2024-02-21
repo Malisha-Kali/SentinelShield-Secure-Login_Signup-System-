@@ -1,5 +1,5 @@
 # Secure-Login_Signup-System (Version 1.0.0)
- This is a Secure Login and Signup sysem Iniatially. In future this will be upgrade to ful System with CRUD Operation
+ This is a Secure Login and Signup sysem Iniatially. In future this will be upgrade to ful Secure Login System.
 
 
 ## Used Technoly for The Registration process Securly Store the passwords of users

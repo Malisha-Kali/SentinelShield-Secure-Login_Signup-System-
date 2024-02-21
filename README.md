@@ -18,3 +18,7 @@ Bcrypt is a widely used and trusted technology for password hashing due to its s
 # Version 1.1.0
 
 including password policy when Regisration
+
+# Version 2.0.0
+
+MFA Added

@@ -26,9 +26,15 @@ MFA Added
 These are the upto now Security Implementations
 
 Password Hashing: User passwords are securely hashed before storage.
+
 CAPTCHA Verification: Helps prevent automated attacks like brute force.
+
 Multi-Factor Authentication (MFA): Adds an extra layer of security during login.
+
 Rate Limiting: Limits login attempts within a timeframe.
+
 Input Validation: Ensures proper data is entered, reducing vulnerabilities.
+
 Error Handling: Provides clear error messages to prevent information disclosure.
+
 Secure Communication: Although not explicitly implemented, ensures secure data transfer.

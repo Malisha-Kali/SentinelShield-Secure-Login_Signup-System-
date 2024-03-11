@@ -23,7 +23,7 @@ including password policy when Regisration
 
 MFA Added
 
-## These are the upto now Security Implementations
+### These are the upto now Security Implementations
 
 Password Hashing: User passwords are securely hashed before storage.
 
